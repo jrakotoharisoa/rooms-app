@@ -1,0 +1,31 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Room {
+  id    String @id @default(cuid())
+  slug String @unique
+
+  name    String
+  equipment Equipment?
+  configuration String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model Equipment {
+  tv Boolean
+  visio Boolean
+  paperboard Boolean
+  videoprojector Boolean
+
+  room   Room   @relation(fields: [roomId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  roomId String @unique
+}
