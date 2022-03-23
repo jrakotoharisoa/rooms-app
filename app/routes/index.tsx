@@ -14,11 +14,11 @@ export default function Index() {
       <div className="space-y-5">
         <Heading>Hi, DEVOXX !</Heading>
         <div className="flex space-x-5">
-          <LinkButton to="/me" isSecondary>
-            I'm Johann
+          <LinkButton to="/me" isSecondary prefetch="render">
+            Show Me
           </LinkButton>
-          <LinkButton to="/rooms" isSecondary>
-            Demo app
+          <LinkButton to="/rooms" isSecondary prefetch="render">
+            View Rooms
           </LinkButton>
         </div>
       </div>
