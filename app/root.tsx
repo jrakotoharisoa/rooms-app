@@ -10,13 +10,11 @@ import type { LinksFunction, MetaFunction } from "remix";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import fontsStylesheetUrl from "./styles/fonts.css";
-import mainStylesheetUrl from "./styles/main.css";
 
 export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: fontsStylesheetUrl },
     { rel: "stylesheet", href: tailwindStylesheetUrl },
-    { rel: "stylesheet", href: mainStylesheetUrl },
   ];
 };
 

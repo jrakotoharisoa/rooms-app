@@ -34,7 +34,7 @@ export default function RoomSlug() {
         />
         <Slug>/rooms/{roomSlug}</Slug>
       </div>
-      <div className="flex items-center  p-10">
+      <div className="p-10">
         <Outlet />
       </div>
     </Container>

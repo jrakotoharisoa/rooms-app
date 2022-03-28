@@ -23,7 +23,11 @@ export default function () {
   const { room } = useLoaderData<LoaderData>();
   return (
     <Container>
-      <Title>Salle {room.name}</Title>
+      <div className="flex items-center justify-between">
+        <Title>Salle {room.name}</Title>
+        <LinkButton to="edit">Editer</LinkButton>
+      </div>
+
       <div>
         <strong>Configuration:</strong> {room.configuration}
       </div>
@@ -36,9 +40,6 @@ export default function () {
               .join(", ")
           : "aucun"}
       </div>
-      <div>
-        <LinkButton to="edit">Editer</LinkButton>
-      </div>
     </Container>
   );
 }
@@ -48,7 +49,7 @@ const Title: React.FC = ({ children }) => {
 };
 
 const Container: React.FC = ({ children }) => (
-  <div className="">{children}</div>
+  <div className="flex-1">{children}</div>
 );
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
