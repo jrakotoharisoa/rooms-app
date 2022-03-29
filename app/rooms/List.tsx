@@ -19,7 +19,6 @@ const Item: React.FC<{ room: Room }> = ({ room }) => {
   const to = `/rooms/${room.slug}`;
   return (
     <NavLink
-      prefetch="intent"
       to={to}
       className={({ isActive }) =>
         `block flex items-center  space-x-3 rounded border-2  p-1 ${
