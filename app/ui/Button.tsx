@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { LinkProps } from "remix";
 
 export const btnClass =
-  "inline-block my-3 h-[35px] rounded-full py-2 px-4 font-medium transition duration-300 ease-out hover:ease-in leading-4";
+  "inline-block my-3 h-[35px] rounded-full flex items-center px-4 font-medium transition duration-300 ease-out hover:ease-in leading-4";
 
 const getClassFor = (isSecondary?: boolean) => {
   if (isSecondary) {

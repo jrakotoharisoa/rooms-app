@@ -9,15 +9,15 @@ import {
   useLoaderData,
 } from "remix";
 import invariant from "tiny-invariant";
-import { Button } from "~/ui/Button";
-import { CheckboxField } from "~/ui/CheckboxField";
-import { SelectField } from "~/ui/SelectField";
-import { TextField } from "~/ui/TextField";
 import {
   getRoomBySlug,
   Room,
   updateRoom,
 } from "~/rooms/room-repository.server";
+import { Button } from "~/ui/Button";
+import { CheckboxField } from "~/ui/CheckboxField";
+import { SelectField } from "~/ui/SelectField";
+import { TextField } from "~/ui/TextField";
 
 type LoaderData = {
   room: Room & { equipment: Equipment | null };

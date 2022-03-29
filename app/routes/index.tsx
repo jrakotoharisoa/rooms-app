@@ -1,4 +1,4 @@
-import type { MetaFunction } from "remix";
+import { MetaFunction } from "remix";
 import { LinkButton } from "~/ui/Button";
 import { Heading } from "~/ui/Heading";
 
