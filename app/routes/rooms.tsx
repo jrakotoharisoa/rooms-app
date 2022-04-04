@@ -2,7 +2,7 @@ import { json, Outlet, useLoaderData } from "remix";
 import type { LoaderFunction } from "remix";
 import { List } from "~/rooms/List";
 import { getRoomListItems } from "~/rooms/room-repository.server";
-import { Heading } from "~/ui/Heading";
+import comet from "~/ui/comet.svg";
 
 type LoaderData = {
   roomListItems: Awaited<ReturnType<typeof getRoomListItems>>;
@@ -16,22 +16,27 @@ export const loader: LoaderFunction = async () => {
 export default function Rooms() {
   const { roomListItems } = useLoaderData();
   return (
-    <Container>
-      <div className="text-center">
-        <Heading>SALLES COMET MEETINGS</Heading>
-      </div>
-      <Grid>
-        <div>
-          <List rooms={roomListItems} />
-        </div>
-        <div>
-          <Outlet />
-        </div>
-      </Grid>
-    </Container>
+    <>
+      <TopBar>
+        <img src={comet} alt="Comet Meetings" className="m-3" />
+      </TopBar>
+      <Container>
+        <Grid>
+          <div>
+            <List rooms={roomListItems} />
+          </div>
+          <div>
+            <Outlet />
+          </div>
+        </Grid>
+      </Container>
+    </>
   );
 }
 
+const TopBar: React.FC = ({ children }) => (
+  <div className="flex justify-center border-b border-white">{children}</div>
+);
 const Container: React.FC = ({ children }) => (
   <div className="m-auto max-w-5xl space-y-10 p-10">{children}</div>
 );
