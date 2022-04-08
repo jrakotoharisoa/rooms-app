@@ -53,10 +53,7 @@ export default function RoomSlug() {
       <CheckboxField
         label="Equipements"
         name="equipments"
-        choices={equipements.map((choice) => ({
-          ...choice,
-          defaultChecked: !!room.equipment?.[choice.value],
-        }))}
+        choices={equipements.map(isEquipementChecked(room.equipment))}
       />
       <div className="text-center">
         <Button type="submit">Sauvegarder</Button>
@@ -72,15 +69,22 @@ const roomConfigurations = [
   { value: "U", label: "Format U" },
 ];
 
-const equipements: {
+type ChoiceOption = {
   value: Exclude<keyof Equipment, "roomId">;
   label: string;
-}[] = [
+};
+const equipements: ChoiceOption[] = [
   { value: "tv", label: "Télévision 4K" },
   { value: "visio", label: "Visio conférence" },
   { value: "paperboard", label: "Paperboard" },
   { value: "videoprojector", label: "Vidéo projecteur" },
 ];
+
+const isEquipementChecked =
+  (equipment: Equipment | null) => (choice: ChoiceOption) => ({
+    ...choice,
+    defaultChecked: !!equipment?.[choice.value],
+  });
 
 const extractRoomData = async (
   formData: FormData,
