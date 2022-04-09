@@ -1,6 +1,8 @@
-import { json, LoaderFunction, MetaFunction, Outlet, useParams } from "remix";
+import type { LoaderFunction, MetaFunction } from "remix";
+import { json, Outlet, useParams } from "remix";
 import invariant from "tiny-invariant";
-import { getRoomBySlug, Room } from "~/rooms/room-repository.server";
+import type { Room } from "~/rooms/room-repository.server";
+import { getRoomBySlug } from "~/rooms/room-repository.server";
 
 type LoaderData = {
   room: Room;
@@ -41,13 +43,13 @@ export default function RoomSlug() {
   );
 }
 
-const Container: React.FC = ({ children }) => (
+const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="h-full overflow-hidden rounded  bg-white text-dark">
     {children}
   </div>
 );
 
-const Slug: React.FC = ({ children }) => (
+const Slug: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="absolute bottom-0 m-5 rounded bg-white py-1 px-2 font-medium opacity-90">
     {children}
   </div>

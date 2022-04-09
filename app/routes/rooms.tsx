@@ -3,6 +3,7 @@ import type { LoaderFunction } from "remix";
 import { List } from "~/rooms/List";
 import { getRoomListItems } from "~/rooms/room-repository.server";
 import comet from "~/ui/comet.svg";
+import React from "react";
 
 type LoaderData = {
   roomListItems: Awaited<ReturnType<typeof getRoomListItems>>;
@@ -34,13 +35,13 @@ export default function Rooms() {
   );
 }
 
-const TopBar: React.FC = ({ children }) => (
+const TopBar: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="flex justify-center border-b border-white">{children}</div>
 );
-const Container: React.FC = ({ children }) => (
+const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="m-auto max-w-5xl space-y-10 p-10">{children}</div>
 );
 
-const Grid: React.FC = ({ children }) => (
+const Grid: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="grid grid-cols-list gap-4">{children}</div>
 );

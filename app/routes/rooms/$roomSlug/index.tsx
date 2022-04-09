@@ -1,7 +1,9 @@
-import { Equipment } from "@prisma/client";
-import { json, LoaderFunction, useLoaderData } from "remix";
+import type { Equipment } from "@prisma/client";
+import type { LoaderFunction } from "remix";
+import { json, useLoaderData } from "remix";
 import invariant from "tiny-invariant";
-import { getRoomBySlug, Room } from "~/rooms/room-repository.server";
+import type { Room } from "~/rooms/room-repository.server";
+import { getRoomBySlug } from "~/rooms/room-repository.server";
 import { LinkButton } from "~/ui/Button";
 
 type LoaderData = {
@@ -44,11 +46,11 @@ export default function () {
   );
 }
 
-const Title: React.FC = ({ children }) => {
+const Title: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return <div className="text-3xl font-bold">{children}</div>;
 };
 
-const Container: React.FC = ({ children }) => (
+const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="flex-1">{children}</div>
 );
 
