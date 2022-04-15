@@ -1,4 +1,4 @@
-import { LoaderFunction } from "remix";
+import type { LoaderFunction } from "remix";
 import path from "path";
 import fs from "fs";
 import invariant from "tiny-invariant";
@@ -13,6 +13,7 @@ export const loader: LoaderFunction = async ({ params }) => {
     status: 200,
     headers: {
       "Content-Type": "image/jpeg",
+      "Cache-Control": "public, max-age=3600, immutable",
     },
   });
 };
