@@ -1,3 +1,4 @@
 {
-    "editor.renderWhitespace": "selection"
+    "editor.renderWhitespace": "selection",
+    "workbench.colorTheme": "GitHub Light Default"
 }
