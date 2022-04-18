@@ -1,19 +1,10 @@
-import { Equipment } from "@prisma/client";
-import { Params } from "react-router";
-import {
-  ActionFunction,
-  Form,
-  json,
-  LoaderFunction,
-  redirect,
-  useLoaderData,
-} from "remix";
+import type { Equipment } from "@prisma/client";
+import type { Params } from "react-router";
+import type { ActionFunction, LoaderFunction } from "remix";
+import { Form, json, redirect, useLoaderData } from "remix";
 import invariant from "tiny-invariant";
-import {
-  getRoomBySlug,
-  Room,
-  updateRoom,
-} from "~/rooms/room-repository.server";
+import type { Room } from "~/rooms/room-repository.server";
+import { getRoomBySlug, updateRoom } from "~/rooms/room-repository.server";
 import { Button } from "~/ui/Button";
 import { CheckboxField } from "~/ui/CheckboxField";
 import { SelectField } from "~/ui/SelectField";
@@ -39,7 +30,7 @@ export const action: ActionFunction = async ({ request, params }) => {
   return redirect(`/rooms/${params.roomSlug}`);
 };
 
-export default function RoomSlug() {
+export default function RoomEdit() {
   const { room } = useLoaderData<LoaderData>();
   return (
     <Form className="space-y-5" method="post">
