@@ -3,6 +3,12 @@ import type { Params } from "react-router";
 import type { ActionFunction, LoaderFunction } from "remix";
 import { Form, json, redirect, useLoaderData } from "remix";
 import invariant from "tiny-invariant";
+import {
+  equipements,
+  initialEquipment,
+  isEquipementChecked,
+} from "~/rooms/equipments";
+import { roomConfigurations } from "~/rooms/room-configurations";
 import type { Room } from "~/rooms/room-repository.server";
 import { getRoomBySlug, updateRoom } from "~/rooms/room-repository.server";
 import { Button } from "~/ui/Button";
@@ -53,30 +59,6 @@ export default function RoomEdit() {
   );
 }
 
-const roomConfigurations = [
-  { value: "BOARD", label: "Board" },
-  { value: "CASUAL", label: "Casual" },
-  { value: "THEATER", label: "Théâtre" },
-  { value: "U", label: "Format U" },
-];
-
-type ChoiceOption = {
-  value: Exclude<keyof Equipment, "roomId">;
-  label: string;
-};
-const equipements: ChoiceOption[] = [
-  { value: "tv", label: "Télévision 4K" },
-  { value: "visio", label: "Visio conférence" },
-  { value: "paperboard", label: "Paperboard" },
-  { value: "videoprojector", label: "Vidéo projecteur" },
-];
-
-const isEquipementChecked =
-  (equipment: Equipment | null) => (choice: ChoiceOption) => ({
-    ...choice,
-    defaultChecked: !!equipment?.[choice.value],
-  });
-
 const extractRoomData = async (
   formData: FormData,
   params: Params
@@ -115,11 +97,4 @@ const extractRoomData = async (
       }
     ),
   };
-};
-
-const initialEquipment = {
-  tv: false,
-  videoprojector: false,
-  paperboard: false,
-  visio: false,
 };

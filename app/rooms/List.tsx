@@ -1,6 +1,6 @@
 import { NavLink, useTransition } from "remix";
-import { Room } from "~/rooms/room-repository.server";
 import { Spinner } from "~/ui/Spinner";
+import type { Room } from "./room-repository.server";
 
 export const List: React.FC<{ rooms: Room[] }> = ({ rooms }) => {
   return (
