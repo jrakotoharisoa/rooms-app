@@ -21,7 +21,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   return json<LoaderData>({ room });
 };
 
-export default function () {
+export default function Index() {
   const { room } = useLoaderData<LoaderData>();
   return (
     <Container>
