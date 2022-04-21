@@ -52,7 +52,7 @@ export default function RoomEdit() {
         name="equipments"
         choices={equipements.map(isEquipementChecked(room.equipment))}
       />
-      <div className="text-center">
+      <div className="flex justify-center">
         <Button type="submit">Sauvegarder</Button>
       </div>
     </Form>
