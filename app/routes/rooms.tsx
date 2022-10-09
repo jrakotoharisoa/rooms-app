@@ -1,9 +1,10 @@
-import { json, Outlet, useLoaderData } from "remix";
-import type { LoaderFunction } from "remix";
+import type { LoaderFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { Outlet, useLoaderData } from "@remix-run/react";
+import React from "react";
 import { List } from "~/rooms/List";
 import { getRoomListItems } from "~/rooms/room-repository.server";
 import comet from "~/ui/comet.svg";
-import React from "react";
 
 type LoaderData = {
   roomListItems: Awaited<ReturnType<typeof getRoomListItems>>;

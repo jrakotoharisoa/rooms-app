@@ -1,6 +1,7 @@
 import type { Equipment } from "@prisma/client";
-import type { LoaderFunction } from "remix";
-import { json, useLoaderData } from "remix";
+import type { LoaderFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
 import type { Room } from "~/rooms/room-repository.server";
 import { getRoomBySlug } from "~/rooms/room-repository.server";

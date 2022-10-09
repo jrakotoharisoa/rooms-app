@@ -1,4 +1,4 @@
-import { NavLink, useTransition } from "remix";
+import { NavLink, useTransition } from "@remix-run/react";
 import { Spinner } from "~/ui/Spinner";
 import type { Room } from "./room-repository.server";
 

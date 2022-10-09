@@ -1,5 +1,6 @@
-import type { LoaderFunction, MetaFunction } from "remix";
-import { json, Outlet, useParams } from "remix";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { Outlet, useParams } from "@remix-run/react";
 import invariant from "tiny-invariant";
 import type { Room } from "~/rooms/room-repository.server";
 import { getRoomBySlug } from "~/rooms/room-repository.server";

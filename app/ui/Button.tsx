@@ -1,5 +1,5 @@
+import { LinkProps } from "@remix-run/react";
 import { Link } from "react-router-dom";
-import type { LinkProps } from "remix";
 
 export const btnClass =
   "inline-block my-3 h-[35px] rounded-full flex items-center px-4 font-medium transition duration-300 ease-out hover:ease-in leading-4";
