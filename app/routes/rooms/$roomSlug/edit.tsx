@@ -1,12 +1,13 @@
 import type { Equipment } from "@prisma/client";
+import type { ActionFunction, LoaderFunction } from "@remix-run/node";
+import { json, redirect } from "@remix-run/node";
+import { Form, useLoaderData } from "@remix-run/react";
 import type { Params } from "react-router";
-import type { ActionFunction, LoaderFunction } from "remix";
-import { Form, json, redirect, useLoaderData } from "remix";
 import invariant from "tiny-invariant";
 import {
   equipements,
   initialEquipment,
-  isEquipementChecked,
+  isEquipementChecked
 } from "~/rooms/equipments";
 import { roomConfigurations } from "~/rooms/room-configurations";
 import type { Room } from "~/rooms/room-repository.server";

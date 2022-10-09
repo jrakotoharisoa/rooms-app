@@ -2,7 +2,7 @@ import cometLieu from "./comet-lieu.jpg";
 import me from "./me.jpeg";
 import github from "./github.png";
 import twitter from "./twitter.png";
-import type { MetaFunction } from "remix";
+import type { MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
   return {
