@@ -21,7 +21,7 @@ type LoaderData = {
   room: Room & { equipment: Equipment | null };
 };
 
-export const loader: LoaderFunction = async ({ request, params }) => {
+export const loader: LoaderFunction = async ({ params }) => {
   invariant(params.roomSlug, "roomSlug not found");
   const room = await getRoomBySlug(params.roomSlug);
   if (!room) {
@@ -68,7 +68,7 @@ const extractRoomData = async (
   const room = await getRoomBySlug(params.roomSlug);
   invariant(room, "Room not found");
 
-  const name = await formData.get("name");
+  const name = formData.get("name");
   invariant(name, "Name is invalid");
 
   const configuration = formData.get("configuration");
